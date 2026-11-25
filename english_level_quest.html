@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>English Level Quest | High A1 – Low B2</title>
+<style>
+:root{--green:#176b52;--mint:#e8f5ef;--ink:#18332b;--muted:#64756e;--line:#dce8e2;--paper:#fff;--bg:#f4f8f5}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:820px;margin:28px auto;padding:0 16px 50px}.hero{background:linear-gradient(135deg,#124d3c,#238367);color:#fff;padding:28px;border-radius:22px}
+.hero h1{font-size:clamp(28px,5vw,42px);margin:6px 0}.hero p{margin:6px 0;color:#e2f5ec}.pill{display:inline-block;border:1px solid #ffffff70;border-radius:30px;padding:4px 11px;font-size:13px}
+.panel,.question,.result{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:20px;margin-top:16px;box-shadow:0 3px 14px #153b2a08}
+label{display:block;font-weight:650;margin-bottom:7px}input[type=text]{width:100%;padding:12px;border:1px solid var(--line);border-radius:10px;font:inherit}
+.progress{height:9px;background:#e4eee8;border-radius:9px;overflow:hidden;margin:14px 0}.progress span{display:block;height:100%;background:#35a77b;width:0;transition:.2s}
+.qtop{display:flex;justify-content:space-between;gap:10px;color:var(--muted);font-size:13px}.question h3{font-size:18px;margin:12px 0}
+.opt{display:flex;align-items:flex-start;gap:10px;padding:11px 12px;border:1px solid var(--line);border-radius:11px;margin:8px 0;cursor:pointer}.opt:hover{background:#f5faf7}.opt input{margin-top:5px;accent-color:var(--green)}
+button{border:0;border-radius:11px;padding:12px 18px;font:inherit;font-weight:700;cursor:pointer;background:var(--green);color:white}button:disabled{opacity:.45;cursor:not-allowed}.secondary{background:#eaf3ee;color:var(--green)}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.small{font-size:13px;color:var(--muted)}.hidden{display:none}.score{font-size:48px;font-weight:800;color:var(--green);text-align:center}.center{text-align:center}
+.review{padding:12px 0;border-top:1px solid var(--line)}.good{color:#16734e;font-weight:700}.bad{color:#b33b36;font-weight:700}
+footer{color:var(--muted);font-size:12px;text-align:center;margin:24px 0}
+@media(max-width:540px){main{margin:14px auto}.hero{padding:22px}.panel,.question,.result{padding:16px}}
+</style>
+</head>
+<body>
+<main>
+<section class="hero">
+ <span class="pill">ENGLISH PLACEMENT PRACTICE</span>
+ <h1>English Level Quest</h1>
+ <p>High A1 → A2 → B1 → Low B2</p>
+ <p class="small" style="color:#d7eee4">單字・文法・閱讀・情境理解｜約 20–30 分鐘</p>
+</section>
+<section id="intro" class="panel">
+ <h2>開始前</h2>
+ <label for="learner">學習者暱稱（選填）</label>
+ <input id="learner" type="text" maxlength="30" placeholder="例如 Alex">
+ <p>共 20 題，每題 1 分。題目由容易到較難，請不要查字典。完成後會顯示練習分數、程度區間與每題解析。</p>
+ <p class="small">本測驗是自製程度練習，不是 Duolingo English Test，也不能預測官方成績。正式 DET 還包含聽力、口說、寫作等能力。</p>
+ <button id="start">開始測驗</button>
+</section>
+<section id="quiz" class="hidden">
+ <div class="panel">
+  <div class="qtop"><span id="counter">Question 1 / 20</span><span id="band">High A1</span></div>
+  <div class="progress"><span id="bar"></span></div>
+  <p class="small">選出最合適的答案。</p>
+ </div>
+ <div id="qcard" class="question"></div>
+ <div class="actions">
+  <button id="prev" class="secondary">上一題</button>
+  <button id="next">下一題</button>
+  <button id="finish" class="hidden">交卷並查看結果</button>
+ </div>
+</section>
+<section id="result" class="result hidden"></section>
+<footer>English Level Quest · Independent practice material</footer>
+</main>
+<script>
+const data=[
+{level:"High A1",q:"My brother ___ a student.",o:["am","is","are","be"],a:1,e:"主詞 My brother 是第三人稱單數，搭配 is。"},
+{level:"High A1",q:"Which word means「便宜的」?",o:["expensive","crowded","cheap","quiet"],a:2,e:"cheap = 便宜的；expensive = 昂貴的。"},
+{level:"High A1",q:"There ___ two apples on the table.",o:["is","am","are","be"],a:2,e:"two apples 是複數，因此用 are。"},
+{level:"High A1",q:"Mia usually ___ to school by bus.",o:["go","goes","going","gone"],a:1,e:"一般現在式中，Mia 是第三人稱單數，動詞加 -es。"},
+{level:"A2",q:"We have lived here ___ 2021.",o:["for","since","during","from"],a:1,e:"since 後面接時間起點；for 後面接一段時間。"},
+{level:"A2",q:"I was cooking when the phone ___.",o:["rings","rang","has rung","ring"],a:1,e:"過去進行式背景中，另一個過去動作通常用過去簡單式。"},
+{level:"A2",q:"If it rains tomorrow, we ___ at home.",o:["stay","stayed","will stay","would stayed"],a:2,e:"第一類條件句常用 If + 現在式，主句 will + 原形動詞。"},
+{level:"A2",q:"This is the ___ film I have ever seen.",o:["more exciting","most exciting","excitingest","much exciting"],a:1,e:"三者以上的最高級用 the most + 多音節形容詞。"},
+{level:"A2",q:"Could you tell me where the station ___?",o:["is","does","be","it is"],a:0,e:"間接問句使用直述句語序：where the station is。"},
+{level:"B1",q:"By the time we arrived, the concert ___.",o:["already starts","has already started","had already started","was already start"],a:2,e:"過去某個時間點之前已完成的動作，用過去完成式 had + p.p.。"},
+{level:"B1",q:"The new library ___ next month.",o:["opens","will be opened","opened","has opening"],a:1,e:"圖書館是被開放，因此使用未來被動式 will be + p.p.。"},
+{level:"B1",q:"She suggested ___ a short break.",o:["take","to take","taking","took"],a:2,e:"suggest 後面接動名詞（-ing），不直接接 to 不定詞。"},
+{level:"B1",q:"Despite ___ tired, he finished the report.",o:["he was","being","was","be"],a:1,e:"despite 是介系詞，後面可接名詞或動名詞 being。"},
+{level:"B1",q:"The instructions were so ___ that nobody knew what to do.",o:["clear","confusing","confident","ordinary"],a:1,e:"後半句表示沒有人知道該做什麼，因此 confusing（令人困惑的）最合適。"},
+{level:"B1",q:"If I had more free time, I ___ another language.",o:["learn","will learn","would learn","would have learned"],a:2,e:"第二類條件句描述現在或未來的假設：would + 原形動詞。"},
+{level:"Low B2",q:"The proposal was rejected, ___ several months of discussion.",o:["although","despite","because","unless"],a:1,e:"despite 後接名詞片語，表示「儘管經過數月討論」。"},
+{level:"Low B2",q:"The manager asked that every applicant ___ the form by Friday.",o:["submits","submit","submitted","will submit"],a:1,e:"ask that + 主詞 + 原形動詞，是正式英文中的要求／建議句型。"},
+{level:"Low B2",q:"Not only ___ late, but he had also forgotten the documents.",o:["he arrived","did he arrive","he did arrive","arrived he"],a:1,e:"Not only 放句首時，前半句需要助動詞倒裝：did he arrive。"},
+{level:"Low B2",q:"The evidence is not sufficient to ___ the claim.",o:["substantiate","interrupt","withdraw","hesitate"],a:0,e:"substantiate = 提供證據支持、證實；最符合語意。"},
+{level:"Low B2",q:"Choose the sentence closest in meaning to: “Although the task was difficult, she completed it.”",o:["The task was difficult, so she abandoned it.","Despite the difficulty, she completed the task.","She completed the task because it was easy.","The task became difficult after she completed it."],a:1,e:"Despite the difficulty 與 Although the task was difficult 意思相近，兩句都表示「儘管困難，她仍完成任務」。"}
+];
+let answers=Array(data.length).fill(null), current=0;
+const $=id=>document.getElementById(id);
+function render(){
+ const d=data[current]; $("counter").textContent=`Question ${current+1} / ${data.length}`;$("band").textContent=d.level;
+ $("bar").style.width=((current+1)/data.length*100)+"%";
+ $("qcard").innerHTML=`<h3>${d.q}</h3>`+d.o.map((x,i)=>`<label class="opt"><input type="radio" name="answer" value="${i}" ${answers[current]===i?"checked":""}><span>${String.fromCharCode(65+i)}. ${x}</span></label>`).join("");
+ document.querySelectorAll('input[name="answer"]').forEach(el=>el.addEventListener("change",e=>answers[current]=Number(e.target.value)));
+ $("prev").disabled=current===0;$("next").classList.toggle("hidden",current===data.length-1);$("finish").classList.toggle("hidden",current!==data.length-1);
+}
+$("start").onclick=()=>{$("intro").classList.add("hidden");$("quiz").classList.remove("hidden");render()};
+$("prev").onclick=()=>{if(current>0){current--;render()}};
+$("next").onclick=()=>{if(current<data.length-1){current++;render()}};
+$("finish").onclick=()=>{
+ const score=answers.reduce((s,a,i)=>s+(a===data[i].a?1:0),0), pct=score/data.length;
+ let level,range,desc;
+ if(pct<.3){level="A1 初階仍需加強";range="約 10–35";desc="建議先穩固基本單字、be 動詞和簡單句型。"}
+ else if(pct<.5){level="A1–A2";range="約 40–55";desc="已掌握部分日常英文，建議加強時態、介系詞和常用句型。"}
+ else if(pct<.7){level="B1 初階";range="約 60–80";desc="能處理不少常見情境，接下來可練習較長句子與閱讀理解。"}
+ else if(pct<.85){level="B1 中高階";range="約 85–95";desc="基礎文法和閱讀表現不錯，可加強複雜句型與精確用字。"}
+ else {level="B1 高階／接近低 B2";range="約 100–115";desc="在本測驗的文法與閱讀題表現良好，建議再用聽說寫測驗確認是否達到 B2。"}
+ $("quiz").classList.add("hidden");$("result").classList.remove("hidden");
+ const who=$("learner").value.trim();
+ $("result").innerHTML=`<div class="center"><span class="pill" style="background:#e8f5ef;color:#176b52;border-color:#d5eadf">RESULT</span><h2>${who?who+"，":""}完成測驗！</h2><div class="score">${score} / 20</div><p>答對率 ${Math.round(pct*100)}%</p><h2>${level}</h2><p>DET 風格參考區間：<b>${range}</b></p><p>${desc}</p></div><hr style="border:0;border-top:1px solid #dce8e2;margin:20px 0"><h3>逐題解析</h3>`+
+ data.map((d,i)=>`<div class="review"><b>Q${i+1} · ${d.level}</b><p>${d.q}</p><p class="${answers[i]===d.a?"good":"bad"}">${answers[i]===d.a?"✓ 答對":"✗ 答錯／未作答"}　正確答案：${d.o[d.a]}</p><p class="small">${d.e}</p></div>`).join("")+
+ `<p class="small">分數區間僅為本網站自訂的粗略練習參考，並非官方 DET 換算或預測。此測驗只有選擇題，未測量聽力、口說及完整寫作能力。</p><button onclick="location.reload()">再測一次</button>`;
+ window.scrollTo({top:0,behavior:"smooth"});
+};
+</script>
+</body></html>
