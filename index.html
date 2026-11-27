@@ -3,105 +3,140 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>English Level Quest | High A1 – Low B2</title>
+<title>English Level Quest | A1–B2</title>
 <style>
-:root{--green:#176b52;--mint:#e8f5ef;--ink:#18332b;--muted:#64756e;--line:#dce8e2;--paper:#fff;--bg:#f4f8f5}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif}
-main{max-width:820px;margin:28px auto;padding:0 16px 50px}.hero{background:linear-gradient(135deg,#124d3c,#238367);color:#fff;padding:28px;border-radius:22px}
-.hero h1{font-size:clamp(28px,5vw,42px);margin:6px 0}.hero p{margin:6px 0;color:#e2f5ec}.pill{display:inline-block;border:1px solid #ffffff70;border-radius:30px;padding:4px 11px;font-size:13px}
-.panel,.question,.result{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:20px;margin-top:16px;box-shadow:0 3px 14px #153b2a08}
-label{display:block;font-weight:650;margin-bottom:7px}input[type=text]{width:100%;padding:12px;border:1px solid var(--line);border-radius:10px;font:inherit}
-.progress{height:9px;background:#e4eee8;border-radius:9px;overflow:hidden;margin:14px 0}.progress span{display:block;height:100%;background:#35a77b;width:0;transition:.2s}
-.qtop{display:flex;justify-content:space-between;gap:10px;color:var(--muted);font-size:13px}.question h3{font-size:18px;margin:12px 0}
-.opt{display:flex;align-items:flex-start;gap:10px;padding:11px 12px;border:1px solid var(--line);border-radius:11px;margin:8px 0;cursor:pointer}.opt:hover{background:#f5faf7}.opt input{margin-top:5px;accent-color:var(--green)}
-button{border:0;border-radius:11px;padding:12px 18px;font:inherit;font-weight:700;cursor:pointer;background:var(--green);color:white}button:disabled{opacity:.45;cursor:not-allowed}.secondary{background:#eaf3ee;color:var(--green)}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
-.small{font-size:13px;color:var(--muted)}.hidden{display:none}.score{font-size:48px;font-weight:800;color:var(--green);text-align:center}.center{text-align:center}
-.review{padding:12px 0;border-top:1px solid var(--line)}.good{color:#16734e;font-weight:700}.bad{color:#b33b36;font-weight:700}
-footer{color:var(--muted);font-size:12px;text-align:center;margin:24px 0}
-@media(max-width:540px){main{margin:14px auto}.hero{padding:22px}.panel,.question,.result{padding:16px}}
+:root{--navy:#172b4d;--blue:#315bd6;--mint:#eaf7f2;--bg:#f4f7fb;--line:#dce4ee;--muted:#61718a;--white:#fff}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--navy);font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:850px;margin:24px auto;padding:0 15px}.hero{background:linear-gradient(135deg,#183c70,#315bd6);color:white;padding:28px;border-radius:22px;margin-bottom:18px}.hero h1{font-size:clamp(27px,5vw,40px);margin:5px 0}.hero p{margin:6px 0;color:#e8efff}.tag{display:inline-block;border:1px solid #ffffff70;border-radius:20px;padding:4px 10px;font-size:13px}
+.card{background:white;border:1px solid var(--line);border-radius:17px;padding:20px;margin:15px 0;box-shadow:0 5px 18px #18324b0a}
+h2{margin:0 0 10px;font-size:22px}h3{margin:0 0 8px}.muted,.small{color:var(--muted)}.small{font-size:13px}
+button{border:0;border-radius:11px;padding:12px 18px;background:var(--blue);color:white;font:inherit;font-weight:700;cursor:pointer}button.secondary{background:#e9eef9;color:#25427f}button:disabled{opacity:.45;cursor:not-allowed}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.progress{height:9px;background:#e8edf4;border-radius:9px;overflow:hidden;margin:12px 0}.progress span{display:block;height:100%;background:#36a786;width:0}
+.meta{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;color:var(--muted);font-size:13px}
+.option{display:block;width:100%;text-align:left;background:#f8faff;color:var(--navy);border:1px solid var(--line);margin:9px 0;font-weight:500}.option.selected{border:2px solid var(--blue);background:#eef2ff}
+input,textarea{width:100%;padding:12px;border:1px solid #cbd5e1;border-radius:10px;font:inherit;color:var(--navy)}textarea{min-height:115px;resize:vertical}
+.hidden{display:none!important}.pill{display:inline-block;padding:4px 9px;background:#edf2ff;border-radius:20px;font-size:12px;color:#294a9b}
+.scoregrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px}.scorebox{background:#f7f9fd;border:1px solid var(--line);border-radius:13px;padding:14px}.big{font-size:28px;font-weight:800}
+.review{border-top:1px solid var(--line);padding:14px 0}.good{color:#14734e}.bad{color:#b33b36}
+table{width:100%;border-collapse:collapse}td,th{padding:9px;border-bottom:1px solid var(--line);text-align:left}
+footer{text-align:center;color:var(--muted);font-size:12px;padding:20px}
+@media(max-width:560px){.hero{padding:22px}.card{padding:16px}}
 </style>
 </head>
 <body>
 <main>
 <section class="hero">
- <span class="pill">ENGLISH PLACEMENT PRACTICE</span>
- <h1>English Level Quest</h1>
- <p>High A1 → A2 → B1 → Low B2</p>
- <p class="small" style="color:#d7eee4">單字・文法・閱讀・情境理解｜約 20–30 分鐘</p>
+<span class="tag">CEFR placement practice · A1–B2</span>
+<h1>English Level Quest</h1>
+<p>英文程度評估｜Grammar · Vocabulary · Sentence Writing</p>
+<p class="small" style="color:#e8efff">約 15–20 分鐘｜總分 160 分｜每次重新抽題</p>
 </section>
-<section id="intro" class="panel">
- <h2>開始前</h2>
- <label for="learner">學習者暱稱（選填）</label>
- <input id="learner" type="text" maxlength="30" placeholder="例如 Alex">
- <p>共 20 題，每題 1 分。題目由容易到較難，請不要查字典。完成後會顯示練習分數、程度區間與每題解析。</p>
- <p class="small">本測驗是自製程度練習，不是 Duolingo English Test，也不能預測官方成績。正式 DET 還包含聽力、口說、寫作等能力。</p>
- <button id="start">開始測驗</button>
+
+<section id="intro" class="card">
+<h2>測驗說明</h2>
+<ul>
+<li><b>Grammar 文法：</b>10 題，每題 6 分，共 60 分。</li>
+<li><b>Vocabulary 單字：</b>10 題，每題 5 分，共 50 分。</li>
+<li><b>Sentence Writing 句子寫作：</b>5 題，每題 10 分，共 50 分。</li>
+<li>題目會從不同難度題庫抽取；答對後下一題傾向提高難度，答錯後降低難度。</li>
+<li>請獨立作答，不使用翻譯或 AI 工具。寫作題請用完整英文句子回答。</li>
+</ul>
+<p class="small">本網站是練習型程度估測，不是官方 DET 或正式 CEFR 認證。寫作目前使用瀏覽器內的規則式初評，不能完整理解所有同義或創意答案。</p>
+<div class="actions"><button id="startBtn">開始測驗</button></div>
 </section>
-<section id="quiz" class="hidden">
- <div class="panel">
-  <div class="qtop"><span id="counter">Question 1 / 20</span><span id="band">High A1</span></div>
-  <div class="progress"><span id="bar"></span></div>
-  <p class="small">選出最合適的答案。</p>
- </div>
- <div id="qcard" class="question"></div>
- <div class="actions">
-  <button id="prev" class="secondary">上一題</button>
-  <button id="next">下一題</button>
-  <button id="finish" class="hidden">交卷並查看結果</button>
- </div>
+
+<section id="quiz" class="card hidden">
+<div class="meta"><span id="sectionName"></span><span id="counter"></span></div>
+<div class="progress"><span id="bar"></span></div>
+<div class="meta"><span id="difficulty"></span><span id="totalProgress"></span></div>
+<h2 id="prompt" style="margin-top:16px"></h2>
+<div id="context" class="muted"></div>
+<div id="answerArea"></div>
+<div class="actions"><button id="submitBtn">確認答案</button><button id="nextBtn" class="hidden">下一題</button></div>
+<p id="feedback" class="small"></p>
 </section>
-<section id="result" class="result hidden"></section>
-<footer>English Level Quest · Independent practice material</footer>
+
+<section id="result" class="hidden">
+<div class="card">
+<h2>測驗結果</h2>
+<p class="muted">以下分數依本測驗的固定規準計算，CEFR 為練習性估測。</p>
+<div class="scoregrid">
+<div class="scorebox"><div class="small">總分</div><div class="big" id="totalScore">—</div><div id="overallLevel" class="pill"></div></div>
+<div class="scorebox"><div class="small">Grammar / 60</div><div class="big" id="gScore">—</div><div id="gLevel" class="pill"></div></div>
+<div class="scorebox"><div class="small">Vocabulary / 50</div><div class="big" id="vScore">—</div><div id="vLevel" class="pill"></div></div>
+<div class="scorebox"><div class="small">Sentence Writing / 50</div><div class="big" id="wScore">—</div><div id="wLevel" class="pill"></div></div>
+</div>
+<h3 style="margin-top:22px">能力分數圖</h3><div id="bars"></div>
+<div class="actions"><button id="againBtn">再測一次（重新抽題）</button><button class="secondary" id="printBtn">列印／儲存報告</button></div>
+</div>
+<div class="card"><h2>逐題回饋</h2><div id="reviews"></div></div>
+</section>
+<footer>English Level Quest · Independent practice tool · Not an official proficiency certificate</footer>
 </main>
 <script>
-const data=[
-{level:"High A1",q:"My brother ___ a student.",o:["am","is","are","be"],a:1,e:"主詞 My brother 是第三人稱單數，搭配 is。"},
-{level:"High A1",q:"Which word means「便宜的」?",o:["expensive","crowded","cheap","quiet"],a:2,e:"cheap = 便宜的；expensive = 昂貴的。"},
-{level:"High A1",q:"There ___ two apples on the table.",o:["is","am","are","be"],a:2,e:"two apples 是複數，因此用 are。"},
-{level:"High A1",q:"Mia usually ___ to school by bus.",o:["go","goes","going","gone"],a:1,e:"一般現在式中，Mia 是第三人稱單數，動詞加 -es。"},
-{level:"A2",q:"We have lived here ___ 2021.",o:["for","since","during","from"],a:1,e:"since 後面接時間起點；for 後面接一段時間。"},
-{level:"A2",q:"I was cooking when the phone ___.",o:["rings","rang","has rung","ring"],a:1,e:"過去進行式背景中，另一個過去動作通常用過去簡單式。"},
-{level:"A2",q:"If it rains tomorrow, we ___ at home.",o:["stay","stayed","will stay","would stayed"],a:2,e:"第一類條件句常用 If + 現在式，主句 will + 原形動詞。"},
-{level:"A2",q:"This is the ___ film I have ever seen.",o:["more exciting","most exciting","excitingest","much exciting"],a:1,e:"三者以上的最高級用 the most + 多音節形容詞。"},
-{level:"A2",q:"Could you tell me where the station ___?",o:["is","does","be","it is"],a:0,e:"間接問句使用直述句語序：where the station is。"},
-{level:"B1",q:"By the time we arrived, the concert ___.",o:["already starts","has already started","had already started","was already start"],a:2,e:"過去某個時間點之前已完成的動作，用過去完成式 had + p.p.。"},
-{level:"B1",q:"The new library ___ next month.",o:["opens","will be opened","opened","has opening"],a:1,e:"圖書館是被開放，因此使用未來被動式 will be + p.p.。"},
-{level:"B1",q:"She suggested ___ a short break.",o:["take","to take","taking","took"],a:2,e:"suggest 後面接動名詞（-ing），不直接接 to 不定詞。"},
-{level:"B1",q:"Despite ___ tired, he finished the report.",o:["he was","being","was","be"],a:1,e:"despite 是介系詞，後面可接名詞或動名詞 being。"},
-{level:"B1",q:"The instructions were so ___ that nobody knew what to do.",o:["clear","confusing","confident","ordinary"],a:1,e:"後半句表示沒有人知道該做什麼，因此 confusing（令人困惑的）最合適。"},
-{level:"B1",q:"If I had more free time, I ___ another language.",o:["learn","will learn","would learn","would have learned"],a:2,e:"第二類條件句描述現在或未來的假設：would + 原形動詞。"},
-{level:"Low B2",q:"The proposal was rejected, ___ several months of discussion.",o:["although","despite","because","unless"],a:1,e:"despite 後接名詞片語，表示「儘管經過數月討論」。"},
-{level:"Low B2",q:"The manager asked that every applicant ___ the form by Friday.",o:["submits","submit","submitted","will submit"],a:1,e:"ask that + 主詞 + 原形動詞，是正式英文中的要求／建議句型。"},
-{level:"Low B2",q:"Not only ___ late, but he had also forgotten the documents.",o:["he arrived","did he arrive","he did arrive","arrived he"],a:1,e:"Not only 放句首時，前半句需要助動詞倒裝：did he arrive。"},
-{level:"Low B2",q:"The evidence is not sufficient to ___ the claim.",o:["substantiate","interrupt","withdraw","hesitate"],a:0,e:"substantiate = 提供證據支持、證實；最符合語意。"},
-{level:"Low B2",q:"Choose the sentence closest in meaning to: “Although the task was difficult, she completed it.”",o:["The task was difficult, so she abandoned it.","Despite the difficulty, she completed the task.","She completed the task because it was easy.","The task became difficult after she completed it."],a:1,e:"Despite the difficulty 與 Although the task was difficult 意思相近，兩句都表示「儘管困難，她仍完成任務」。"}
-];
-let answers=Array(data.length).fill(null), current=0;
+const bank = {
+grammar:[
+{l:1,q:"My brother ___ a student.",o:["am","is","are","be"],a:1,e:"主詞 My brother 是第三人稱單數，現在式 be 動詞用 is。"},
+{l:1,q:"We ___ football every Sunday.",o:["plays","playing","play","played"],a:2,e:"一般現在式描述習慣；主詞 We 搭配原形 play。"},
+{l:1,q:"There ___ two books on the desk.",o:["is","are","am","be"],a:1,e:"two books 是複數，因此用 are。"},
+{l:1,q:"She doesn't ___ coffee.",o:["likes","like","liked","liking"],a:1,e:"doesn't 後面接原形動詞 like。"},
+{l:2,q:"I ___ dinner when you called.",o:["cook","cooked","was cooking","am cooking"],a:2,e:"過去某個時間正在進行的動作，用過去進行式。"},
+{l:2,q:"This is the ___ film I have ever seen.",o:["more exciting","most exciting","exciting","excited"],a:1,e:"三者以上的最高級用 the most exciting。"},
+{l:2,q:"If it rains tomorrow, we ___ at home.",o:["stay","stayed","will stay","would stay"],a:2,e:"第一類條件句：If + 現在式，主句常用 will + 原形動詞。"},
+{l:2,q:"I've lived here ___ 2021.",o:["for","since","during","from"],a:1,e:"since 後接開始的時間點；for 後接一段期間。"},
+{l:3,q:"The email ___ before the meeting started.",o:["sent","had sent","had been sent","has sending"],a:2,e:"郵件是被寄出的，且先於會議開始，使用過去完成被動式。"},
+{l:3,q:"I wish I ___ more time to prepare.",o:["have","will have","had","am having"],a:2,e:"wish 表示與現在事實相反的願望，常用過去式 had。"},
+{l:3,q:"Neither the teacher nor the students ___ ready.",o:["was","were","is","be"],a:1,e:"neither...nor... 的動詞通常與較靠近的主詞 students 一致。"},
+{l:3,q:"She suggested ___ the earlier train.",o:["take","to take","taking","taken"],a:2,e:"suggest 後面接動名詞，suggest doing something。"},
+{l:4,q:"Had I known about the delay, I ___ earlier.",o:["would leave","would have left","will leave","left"],a:1,e:"倒裝的第三類條件句，主句用 would have + 過去分詞。"},
+{l:4,q:"The proposal, ___ by the committee, will be published.",o:["approving","approved","was approved","to approve"],a:1,e:"過去分詞片語 approved by... 修飾 proposal，表示被動。"},
+{l:4,q:"Not only ___ late, but he also forgot the documents.",o:["he arrived","did he arrive","he did arrive","arrived he"],a:1,e:"Not only 置於句首時，子句需要部分倒裝：did he arrive。"}
+],
+vocab:[
+{l:1,q:"Choose the word closest in meaning to “tiny”.",o:["huge","small","noisy","empty"],a:1,e:"tiny 表示非常小的，最接近 small。"},
+{l:1,q:"I'm very ___; I need a glass of water.",o:["thirsty","hungry","sleepy","angry"],a:0,e:"需要喝水表示口渴，使用 thirsty。"},
+{l:1,q:"Which word means the opposite of “early”?",o:["fast","late","soon","quick"],a:1,e:"early 的反義詞是 late。"},
+{l:1,q:"Please ___ the door when you leave.",o:["close","grow","borrow","arrive"],a:0,e:"離開時請把門關上，close the door。"},
+{l:2,q:"The instructions were clear and easy to ___.",o:["understand","invite","discover","protect"],a:0,e:"understand 意為理解，符合 clear instructions 的語意。"},
+{l:2,q:"The train was ___ because of heavy rain.",o:["delighted","delayed","decorated","divided"],a:1,e:"因大雨而延誤，使用 delayed。"},
+{l:2,q:"She is very ___; she always keeps her promises.",o:["reliable","ordinary","nervous","ancient"],a:0,e:"reliable 表示可靠的，符合守信用的描述。"},
+{l:2,q:"We need to ___ the problem before Friday.",o:["solve","raise","avoidance","belong"],a:0,e:"solve a problem 是「解決問題」的常見搭配。"},
+{l:3,q:"The new policy aims to ___ unnecessary costs.",o:["eliminate","celebrate","imitate","hesitate"],a:0,e:"eliminate costs 表示消除不必要的成本。"},
+{l:3,q:"His explanation was so ___ that nobody misunderstood it.",o:["ambiguous","precise","reluctant","temporary"],a:1,e:"precise 表示精確的，與 nobody misunderstood 相符。"},
+{l:3,q:"The discovery had a significant ___ on medical research.",o:["affect","effect","effort","aspect"],a:1,e:"have an effect on 是固定搭配；此處需要名詞 effect。"},
+{l:3,q:"The manager tried to ___ the disagreement between the teams.",o:["resolve","dissolve","revolve","evolve"],a:0,e:"resolve a disagreement 表示解決歧見。"},
+{l:4,q:"The report provides a ___ analysis rather than a superficial overview.",o:["comprehensive","conventional","reluctant","incidental"],a:0,e:"comprehensive 表示全面詳盡的，與 superficial 相反。"},
+{l:4,q:"Her argument was persuasive because it was supported by ___ evidence.",o:["anecdotal","substantial","random","scarce"],a:1,e:"substantial evidence 指充分、有份量的證據。"},
+{l:4,q:"The project was postponed due to ___ circumstances beyond our control.",o:["adverse","favorable","identical","optional"],a:0,e:"adverse circumstances 指不利的情況。"}
+],
+writing:[
+{l:1,q:"Write one sentence about your daily routine.",hint:"請使用現在簡單式，描述一件你每天做的事。",terms:["i","every","usually","always","often","morning","day"],model:"I usually get up at seven every morning."},
+{l:1,q:"Translate into English:「我昨天和朋友去公園。」",hint:"請使用正確的過去式。",terms:["yesterday","friend","park","went","with"],model:"I went to the park with my friend yesterday."},
+{l:2,q:"Write a sentence comparing two things you like.",hint:"請使用比較級，例如 better、more interesting、bigger。",terms:["than","more","better","bigger","smaller","interesting"],model:"Reading is more relaxing than playing video games."},
+{l:2,q:"Write one sentence about something you have done recently.",hint:"請嘗試使用現在完成式 have/has + p.p.。",terms:["have","has","already","recently","just","visited","finished","learned"],model:"I have recently learned how to cook pasta."},
+{l:3,q:"Write a sentence explaining what you would do if you had a free day.",hint:"請使用 If I had..., I would... 的句型。",terms:["if","would","could","had","free","day","visit","spend"],model:"If I had a free day, I would visit a museum."},
+{l:3,q:"Write one sentence giving an opinion and a reason.",hint:"請清楚表達立場，並用 because / since / as 說明原因。",terms:["because","since","think","believe","important","useful","should"],model:"I believe learning languages is important because it helps us communicate."},
+{l:4,q:"Write a complex sentence about how technology affects learning.",hint:"請使用 although、whereas、which、therefore 等連接方式。",terms:["although","whereas","which","therefore","while","enables","allows","affects"],model:"Although technology enables quick access to information, it also requires learners to evaluate sources carefully."},
+{l:4,q:"Write a sentence describing a possible consequence of ignoring a problem.",hint:"請使用條件句或較複雜的因果表達。",terms:["if","unless","could","might","would","consequence","result"],model:"If the issue is ignored, it could become much more difficult to resolve."}
+]};
+const state={items:[],idx:0,answers:[],section:0,level:{grammar:2,vocab:2,writing:2},scores:{grammar:0,vocab:0,writing:0}};
+const sections=[{key:"grammar",name:"Grammar 文法",count:10,points:6},{key:"vocab",name:"Vocabulary 單字",count:10,points:5},{key:"writing",name:"Sentence Writing 句子寫作",count:5,points:10}];
 const $=id=>document.getElementById(id);
-function render(){
- const d=data[current]; $("counter").textContent=`Question ${current+1} / ${data.length}`;$("band").textContent=d.level;
- $("bar").style.width=((current+1)/data.length*100)+"%";
- $("qcard").innerHTML=`<h3>${d.q}</h3>`+d.o.map((x,i)=>`<label class="opt"><input type="radio" name="answer" value="${i}" ${answers[current]===i?"checked":""}><span>${String.fromCharCode(65+i)}. ${x}</span></label>`).join("");
- document.querySelectorAll('input[name="answer"]').forEach(el=>el.addEventListener("change",e=>answers[current]=Number(e.target.value)));
- $("prev").disabled=current===0;$("next").classList.toggle("hidden",current===data.length-1);$("finish").classList.toggle("hidden",current!==data.length-1);
-}
-$("start").onclick=()=>{$("intro").classList.add("hidden");$("quiz").classList.remove("hidden");render()};
-$("prev").onclick=()=>{if(current>0){current--;render()}};
-$("next").onclick=()=>{if(current<data.length-1){current++;render()}};
-$("finish").onclick=()=>{
- const score=answers.reduce((s,a,i)=>s+(a===data[i].a?1:0),0), pct=score/data.length;
- let level,range,desc;
- if(pct<.3){level="A1 初階仍需加強";range="約 10–35";desc="建議先穩固基本單字、be 動詞和簡單句型。"}
- else if(pct<.5){level="A1–A2";range="約 40–55";desc="已掌握部分日常英文，建議加強時態、介系詞和常用句型。"}
- else if(pct<.7){level="B1 初階";range="約 60–80";desc="能處理不少常見情境，接下來可練習較長句子與閱讀理解。"}
- else if(pct<.85){level="B1 中高階";range="約 85–95";desc="基礎文法和閱讀表現不錯，可加強複雜句型與精確用字。"}
- else {level="B1 高階／接近低 B2";range="約 100–115";desc="在本測驗的文法與閱讀題表現良好，建議再用聽說寫測驗確認是否達到 B2。"}
- $("quiz").classList.add("hidden");$("result").classList.remove("hidden");
- const who=$("learner").value.trim();
- $("result").innerHTML=`<div class="center"><span class="pill" style="background:#e8f5ef;color:#176b52;border-color:#d5eadf">RESULT</span><h2>${who?who+"，":""}完成測驗！</h2><div class="score">${score} / 20</div><p>答對率 ${Math.round(pct*100)}%</p><h2>${level}</h2><p>DET 風格參考區間：<b>${range}</b></p><p>${desc}</p></div><hr style="border:0;border-top:1px solid #dce8e2;margin:20px 0"><h3>逐題解析</h3>`+
- data.map((d,i)=>`<div class="review"><b>Q${i+1} · ${d.level}</b><p>${d.q}</p><p class="${answers[i]===d.a?"good":"bad"}">${answers[i]===d.a?"✓ 答對":"✗ 答錯／未作答"}　正確答案：${d.o[d.a]}</p><p class="small">${d.e}</p></div>`).join("")+
- `<p class="small">分數區間僅為本網站自訂的粗略練習參考，並非官方 DET 換算或預測。此測驗只有選擇題，未測量聽力、口說及完整寫作能力。</p><button onclick="location.reload()">再測一次</button>`;
- window.scrollTo({top:0,behavior:"smooth"});
-};
+function shuffle(a){let x=[...a];for(let i=x.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[x[i],x[j]]=[x[j],x[i]]}return x}
+function pickOne(section){let used=state.items.filter(x=>x.section===section).map(x=>x.q);let level=state.level[section];let pool=bank[section].filter(q=>!used.includes(q));let candidates=pool.filter(q=>q.l===level);if(!candidates.length)candidates=pool.filter(q=>Math.abs(q.l-level)===1);if(!candidates.length)candidates=pool;if(!candidates.length)return null;return {...candidates[Math.floor(Math.random()*candidates.length)],section,points:sections.find(s=>s.key===section).points}}
+function start(){state.items=[];state.answers=[];state.idx=0;state.section=0;state.scores={grammar:0,vocab:0,writing:0};state.level={grammar:2,vocab:2,writing:2};state.items.push(pickOne("grammar"));$("intro").classList.add("hidden");$("result").classList.add("hidden");$("quiz").classList.remove("hidden");render()}
+function render(){let q=state.items[state.idx];let s=sections.find(x=>x.key===q.section);$("sectionName").textContent=s.name;$("counter").textContent=`第 ${state.idx+1} / ${state.items.length} 題`;$("bar").style.width=`${state.idx/state.items.length*100}%`;$("totalProgress").textContent=`進度 ${Math.round(state.idx/state.items.length*100)}%`;$("difficulty").textContent=`難度 ${["","A1","A2","B1","B2"][q.l]}`;$("prompt").textContent=q.q;$("context").textContent=q.hint||"";$("feedback").textContent="";$("submitBtn").classList.remove("hidden");$("submitBtn").disabled=false;$("nextBtn").classList.add("hidden");let area=$("answerArea");area.innerHTML="";
+if(q.section==="writing"){let t=document.createElement("textarea");t.id="written";t.placeholder="Type your answer in English...";area.appendChild(t)}else{q.o.forEach((o,i)=>{let b=document.createElement("button");b.className="option";b.textContent=String.fromCharCode(65+i)+". "+o;b.onclick=()=>{area.querySelectorAll("button").forEach(x=>x.classList.remove("selected"));b.classList.add("selected");b.dataset.choice=i};area.appendChild(b)})}}
+function gradeWriting(q,ans){let a=ans.trim().toLowerCase();if(!a)return {score:0,why:"沒有作答。請寫出完整英文句子。"};let words=a.match(/[a-z']+/g)||[];let unique=new Set(words);let score=0; if(words.length>=5)score+=2;if(/[.!?]$/.test(ans.trim()))score+=1;if(/\b(i|he|she|we|they|it|this|that|my|the)\b/.test(a))score+=1;if(q.terms.some(t=>a.includes(t)))score+=3;if(/\b(because|although|if|when|which|while|than|since|whereas|therefore)\b/.test(a))score+=1;if(words.length>=8)score+=1;if(unique.size>=5)score+=1;score=Math.min(10,score);let why="初步規則評分：依完整度、句長、指定語言特徵與連接詞給分。";if(score<6)why+=" 建議檢查主詞、動詞、時態及句子是否完整。";else why+=" 句子具備部分要求；請再檢查文法與語意是否自然。";return {score,why}}
+function submit(){let q=state.items[state.idx],ans,earned=0,detail="";if(q.section==="writing"){ans=$("written").value;let r=gradeWriting(q,ans);earned=r.score;detail=r.why}else{let chosen=$("answerArea").querySelector(".selected");if(!chosen){$("feedback").textContent="請先選擇一個答案。";return}let i=Number(chosen.dataset.choice);ans=q.o[i];earned=i===q.a?q.points:0;detail=i===q.a?q.e:"正確答案是："+q.o[q.a]+"。"+q.e}
+state.scores[q.section]+=earned;state.answers.push({q,ans,earned,detail});let correct=q.section==="writing"?earned>=6:earned>0;if(correct)state.level[q.section]=Math.min(4,state.level[q.section]+1);else state.level[q.section]=Math.max(1,state.level[q.section]-1);
+$("feedback").textContent=`本題得分：${earned} / ${q.points}。${detail}`;$("submitBtn").classList.add("hidden");$("nextBtn").classList.remove("hidden");}
+function next(){state.idx++;if(state.idx>=25){finish();return}let section=state.idx<10?"grammar":state.idx<20?"vocab":"writing";let q=pickOne(section);if(!q){finish();return}state.items.push(q);render()}
+function cefr(score,max){let p=score/max;if(p<.35)return "A1";if(p<.58)return "A2";if(p<.80)return "B1";return "B2"}
+function finish(){ $("quiz").classList.add("hidden");$("result").classList.remove("hidden");let g=state.scores.grammar,v=state.scores.vocab,w=state.scores.writing,total=g+v+w;$("totalScore").textContent=total+" / 160";$("overallLevel").textContent="整體 "+cefr(total,160);$("gScore").textContent=g+" / 60";$("vScore").textContent=v+" / 50";$("wScore").textContent=w+" / 50";$("gLevel").textContent=cefr(g,60);$("vLevel").textContent=cefr(v,50);$("wLevel").textContent=cefr(w,50);
+$("bars").innerHTML=[["Grammar",g,60],["Vocabulary",v,50],["Writing",w,50]].map(([n,x,m])=>`<p class="small">${n}：${x}/${m}（${Math.round(x/m*100)}%）</p><div class="progress"><span style="width:${x/m*100}%"></span></div>`).join("");
+$("reviews").innerHTML=state.answers.map((a,i)=>`<div class="review"><b>${i+1}. ${a.q.q}</b><p class="small">難度：${["","A1","A2","B1","B2"][a.q.l]}｜你的答案：${escapeHtml(a.ans||"未作答")}｜得分：${a.earned}/${a.q.points}</p><p class="small">${escapeHtml(a.detail)}</p>${a.q.section==="writing"?`<p class="small">參考句（答案不唯一）：${escapeHtml(a.q.model)}</p>`:""}</div>`).join("")}
+function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+$("startBtn").onclick=start;$("submitBtn").onclick=submit;$("nextBtn").onclick=next;$("againBtn").onclick=start;$("printBtn").onclick=()=>window.print();
 </script>
 </body></html>
